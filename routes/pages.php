@@ -22,10 +22,20 @@ use \App\controller\pages;
             return new response(200,pages\sobre::getSobre());
         }
     ]);
-    // Rota dinamica / Paginacao = Código da pagina
-    $router->get('/pagina/{paginacao}/{inscricao}' ,[ 
-        function($paginacao,$inscricao){
-            return new response(200,'Página '. $paginacao. '-' .$inscricao);
+
+    $router->get('/inscricoes' ,[ 
+        function(){
+            return new response(200,pages\inscricoes::getInscricoes());
+        }
+    ]);
+    // Inserir os dados
+    $router->post('/inscricoes' ,[ 
+        function($request){
+            echo '<pre>';
+            print_r($request);
+            echo '</pre>';
+            exit();
+            return new response(200,pages\inscricoes::getInscricoes());
         }
     ]);
 
