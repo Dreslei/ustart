@@ -3,8 +3,13 @@
 
     use \App\http\router;
     use \App\utils\view;
+    use \WilliamCosta\DotEnv\Ambiente;
 
-    define('URL','http://localhost/ustart');
+    Ambiente::load(__DIR__);
+
+    // define('URL','http://localhost/ustart'); Define uma url fixa
+
+    define('URL',getenv('URL')); // Define uma constante de url
 
     // Definindo o valor padrão das variaveis
     // Varial comum em varios escopos podem ser definidas aqui
