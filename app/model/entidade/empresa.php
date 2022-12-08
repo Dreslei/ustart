@@ -8,6 +8,8 @@ class empresa{
 
     public $nome = 'Umentor';
 
+    public $evento = 'ahjshajs';
+
     public $site = 'www.umentor.com.br';
 
     public $descricao = 'Lorem ipsum dolor sit amet consectetur 
