@@ -5,15 +5,17 @@
     use \App\utils\view;
     use \App\model\entidade\empresa;
 
-    class Home extends page{
+    class sobre extends page{
         
-        public static function getHome(){
+        public static function getSobre(){
             $empresa = new empresa;
 
-            $conteudo = view::render('pages/home',[
+            $conteudo = view::render('pages/sobre',[
                 'nome'=> $empresa->nome,
+                'descricao' => $empresa->descricao,
+                'site' => $empresa->site
             ]);
-            return parent::getPage('Home',$conteudo);
+            return parent::getPage('Sobre',$conteudo);
         }
     }
 

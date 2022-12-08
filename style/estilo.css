@@ -21,7 +21,7 @@ nav .container-fluid {
 }
 
 main .banner {
-    background-image: url(../imagens/bgum.jpg);
+    background-image: url(../resources/imagens/bgum.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -62,7 +62,7 @@ main .card:hover {
 }
 
 main .banner-2 {
-    background-image: url(../imagens/bgUmentor.jpeg);
+    background-image: url(../resources/imagens/bgUmentor.jpeg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;

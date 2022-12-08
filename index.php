@@ -1,7 +1,25 @@
 <?php 
     require __DIR__.'/vendor/autoload.php';
 
-    use \App\controller\pages\home;
+    use \App\http\router;
+    use \App\utils\view;
 
-    echo home::gethome();
+    define('URL','http://localhost/ustart');
+
+    // Definindo o valor padrão das variaveis
+    // Varial comum em varios escopos podem ser definidas aqui
+    view::init([
+        // Pode ser usado nomeclatura de url_base
+        'url'=> URL
+    ]);
+    
+    // Iniciando a ROTA
+    $router = new router(URL);
+    
+    // Incluir as rotas
+    include __DIR__ .'/routes/pages.php';
+
+    // Imprimir response da rota
+    $router->run()->send_response();
+
 ?>
