@@ -31,11 +31,11 @@ use \App\controller\pages;
     // Inserir os dados
     $router->post('/inscricoes' ,[ 
         function($request){
-            echo '<pre>';
-            print_r($request);
-            echo '</pre>';
-            exit();
-            return new response(200,pages\inscricoes::getInscricoes());
+            // echo '<pre>';
+            // print_r($request);
+            // echo '</pre>';
+            // exit();
+            return new response(200,pages\inscricoes::inserir_inscricoes($request));
         }
     ]);
 
