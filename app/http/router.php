@@ -152,8 +152,6 @@
                     $arguments[$name] = $route['variaveis'][$name] ?? '';
                 }
 
-  
-
                 // call_user_func_array -> Chamar uma função php existente.
                 // Sintaxe - Função como primeiro parametro e em seguida usar a matriz como segundo parametro.
                 return call_user_func_array($route['controller'],$arguments);

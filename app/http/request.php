@@ -8,13 +8,13 @@
 
         private $query_Params = [];
 
-        private $post_vars = [];
+        private $postVars = [];
 
         private $headers = [];
 
         public function __construct() {
             $this->queryParams = $_GET ?? [];
-            $this->queryVars = $_POST ?? [];
+            $this->postVars = $_POST ?? [];
             $this->headers = getallheaders();
             $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
             $this->uri = $_SERVER['REQUEST_URI'] ?? '';
@@ -33,7 +33,7 @@
         }
 
         public function getpostVars() {
-            return $this->post_vars;
+            return $this->postVars;
         }
 
         public function getHeaders() {

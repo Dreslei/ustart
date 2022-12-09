@@ -3,17 +3,62 @@
     namespace App\Controller\Pages;
 
     use \App\utils\view;
-    use \App\model\entidade\empresa;
+    // as = Criado um alias.
+    use \App\model\entidade\inscricoes as entidade_inscricoes;
 
     class Inscricoes extends page{
+
+        // Consultas no banco de dados, obter o render das inscricoes
+        private static function getInscricoesLista() {
+            $lista = '';
+
+            $result = entidade_inscricoes::getInscricoes(null,'codigo DESC');
+            while ($inscricao = $result->fetchObject(entidade_inscricoes::class)){
+                // echo '<pre>';
+                // print_r($inscricao);
+                // echo '</pre>';
+                // exit();
+
+                $lista .= view::render('pages/inscricoes/lista_inscricoes',[
+                    'inscricao_nome'=> $inscricao ->nome,
+                    'inscricao_cpf'=> $inscricao ->cpf,
+                    'inscricao_evento'=> $inscricao ->evento,
+                    'inscricao_data' => date('d/m/Y H:i:s',strtotime($inscricao ->data)),
+                ]);
+            }
+
+            return $lista;
+        }
         
         public static function getInscricoes(){
 
             $conteudo = view::render('pages/inscricoes',[
+                'lista_inscricoes'=> self::getInscricoesLista()
 
             ]);
             
             return parent::getPage('Inscricoes',$conteudo);
+        }
+        // Cadastrar as inscrições
+        public static function inserir_inscricoes($request) {
+            // Dados recebidos pelo metodo post
+            $postVars = $request->getPostvars();
+
+            $inscricao = new entidade_inscricoes;
+
+            // Recomendado fazer validações se o dado vier inconsistente.
+            $inscricao->nome = $postVars['nome'];
+            $inscricao->cpf = $postVars['cpf'];
+            $inscricao->evento = $postVars['evento'];
+
+            $inscricao->cadastrar();
+
+            // echo '<pre>';
+            // print_r($postVars);
+            // echo '</pre>';
+            // exit();
+            
+            return self::getInscricoes();
         }
     }
 
