@@ -39,4 +39,21 @@ use \App\controller\pages;
         }
     ]);
 
+
+    $router->get('/eventos' ,[ 
+        function(){
+            return new response(200,pages\eventos::getEventos());
+        }
+    ]);
+    // Inserir os dados
+    $router->post('/eventos' ,[ 
+        function($request){
+            // echo '<pre>';
+            // print_r($request);
+            // echo '</pre>';
+            // exit();
+            return new response(200,pages\eventos::inserir_eventos($request));
+        }
+    ]);
+
 ?>

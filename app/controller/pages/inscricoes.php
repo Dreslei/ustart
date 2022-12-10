@@ -18,7 +18,7 @@
                 // echo '</pre>';
                 // exit();
 
-                $lista .= view::render('pages/inscricoes/lista_inscricoes',[
+                $lista .= view::render('pages/listas/lista_inscricoes',[
                     'inscricao_nome'=> $inscricao ->NOME_PARTICIPANTE,
                     'inscricao_cpf'=> $inscricao ->CPF_PARTICIPANTE,
                     // 'inscricao_evento'=> $inscricao ->evento,
