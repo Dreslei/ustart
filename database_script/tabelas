@@ -14,4 +14,7 @@ CREATE TABLE tblinscricao(
    VALOR_EVENTO 	 numeric(10,2),
    DATA_EVENTO date NOT NULL,
    PRIMARY KEY(CODIGO_EVENTO)
+
+   ALTER TABLE ustart.tbleventos ADD CARGA_HORARIA time NULL;
+
  );
